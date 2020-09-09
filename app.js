@@ -5,6 +5,16 @@ const app = express();
 const port = 8000;
 
 // routes
-require('./routes')(app, {});
+require(__dirname + '/routes')(app, {});
 
-app.listen(port, () => {  console.log('Live on ' + port); });
+// application setting properties
+// see more @https://expressjs.com/en/4x/api.html#app.set
+// Set the default templating engine to ejs
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+app.use(express.static(__dirname + '/assets'));
+
+app.listen(port, () => {
+  console.log('live on ' + port);
+});

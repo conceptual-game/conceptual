@@ -1,2 +1,3 @@
 # kaiser-game
-# i'm in
+to run development environment
+`npm run dev`
